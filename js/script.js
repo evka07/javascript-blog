@@ -175,12 +175,25 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // function generateAuthorsHTML(article) {
+    //     const authors = article.getAttribute('data-author').split(' ');
+    //     let authorHTML = '';
+    //
+    //     for (const author of authors) {
+    //         authorHTML += `<li><a href="#tag-${author}">${author}</a></li>`;
+    //     }
+    //
+    //     return `<div class="post-tags">
+    //         <p><strong></strong></p>
+    //         <ul class="list list-horizontal">${authorHTML} </ul>
+    //       </div>`;
+    // }
     function generateAuthorsHTML(article) {
         const authors = article.getAttribute('data-author').split(' ');
         let authorHTML = '';
 
         for (const author of authors) {
-            authorHTML += `<li><a href="#tag-${author}">${author}</a></li>`;
+            authorHTML += `<li><a href="#author-${author}">${author}</a></li>`;
         }
 
         return `<div class="post-tags">
