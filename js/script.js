@@ -115,7 +115,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function addClickListenersToTags() {
-        const tagLinks = document.querySelectorAll('.tags li a');
+        // const tagLinks = document.querySelectorAll('.tags li a');
+        const tagLinks = document.querySelectorAll('.post-tags li a , .tags li a');
 
         for (const tagLink of tagLinks) {
             tagLink.addEventListener('click', tagClickHandler);
