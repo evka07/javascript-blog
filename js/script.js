@@ -30,6 +30,56 @@ function calculateTagClass(count, params) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
+
+    // const articleTemplate = document.getElementById("article-template").innerHTML
+    // const compiledArticleTemplate = Handlebars.compile(articleTemplate)
+    //
+    // const articles = [
+    //     {
+    //         articleId: "article-1",
+    //         title: "Travel",
+    //         author: "by George Tuxedo",
+    //         content: "Tip: Travel can be a diverse topic to talk about. It can mean to travel from one place to-->\n" +
+    //             "                            another using a specific mode of transportation. Or, it can be the kind of travel where you-->\n" +
+    //             "                            visit another city or country. As we said, it is somewhat crucial for asking directions to-->\n" +
+    //             "                            be able to go to your destination, so practice questions like, “How do we get there?” “Where-->\n" +
+    //             "                            is the bus stop?” “Point me to the hospital.” Learning such questions may be handy for-->\n" +
+    //             "                           different types of situations, especially in an emergency",
+    //         tags: ["Travel"]
+    //     },
+    //
+    //     {
+    //         articleId: "article-2",
+    //         title: "Travel",
+    //         author: "by George Tuxedo",
+    //         content: "Tip: Travel can be a diverse topic to talk about. It can mean to travel from one place to-->\n" +
+    //             "                            another using a specific mode of transportation. Or, it can be the kind of travel where you-->\n" +
+    //             "                            visit another city or country. As we said, it is somewhat crucial for asking directions to-->\n" +
+    //             "                            be able to go to your destination, so practice questions like, “How do we get there?” “Where-->\n" +
+    //             "                            is the bus stop?” “Point me to the hospital.” Learning such questions may be handy for-->\n" +
+    //             "                           different types of situations, especially in an emergency",
+    //         tags: ["Travel"]
+    //     },
+    //     {
+    //         articleId: "article-3",
+    //         title: "Travel",
+    //         author: "by George Tuxedo",
+    //         content: "Tip: Travel can be a diverse topic to talk about. It can mean to travel from one place to-->\n" +
+    //             "                            another using a specific mode of transportation. Or, it can be the kind of travel where you-->\n" +
+    //             "                            visit another city or country. As we said, it is somewhat crucial for asking directions to-->\n" +
+    //             "                            be able to go to your destination, so practice questions like, “How do we get there?” “Where-->\n" +
+    //             "                            is the bus stop?” “Point me to the hospital.” Learning such questions may be handy for-->\n" +
+    //             "                           different types of situations, especially in an emergency",
+    //         tags: ["Travel"]
+    //     },
+    //
+    // ]
+
+    // for (const article of articles) {
+    //     const articleHtml = compiledArticleTemplate(article);
+    //     document.querySelector(".posts").insertAdjacentHTML("beforeend", articleHtml)
+    // }
+
     function titleClickHandler(event) {
         event.preventDefault();
         const clickedElement = this;
@@ -181,23 +231,33 @@ document.addEventListener('DOMContentLoaded', function () {
     function generateAuthors() {
         const articles = document.querySelectorAll('.post');
 
-        const authorsList = document.querySelector('.authors');
-        authorsList.innerHTML = '';
-
-        const authors = {};
+        const authorsInfo = {};
 
         for (const article of articles) {
             const author = article.getAttribute('data-author');
-            const authorID = `author-${author}`;
 
-            if (!author || authors[authorID]) {
+            if (!author) {
                 continue;
             }
 
-            const authorHTML = `<li><a href="#${authorID}">${author}</a></li>`;
-            authorsList.insertAdjacentHTML('beforeend', authorHTML);
 
-            authors[authorID] = true;
+            if (!authorsInfo[author]) {
+                authorsInfo[author] = {
+                    count: 0,
+                    link: `#author-${author}`,
+                };
+            }
+
+            authorsInfo[author].count++;
+        }
+
+        const authorsList = document.querySelector('.authors');
+        authorsList.innerHTML = '';
+
+        for (const author in authorsInfo) {
+            const { count, link } = authorsInfo[author];
+            const authorHTML = `<li><a href="${link}">${author}</a> (${count})</li>`;
+            authorsList.insertAdjacentHTML('beforeend', authorHTML);
         }
     }
 
@@ -212,17 +272,17 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function generateAuthorsHTML(article) {
-        const authors = article.getAttribute('data-author').split(' ');
-        let authorHTML = '';
+        const author = article.getAttribute('data-author');
+        const authorID = `author-${author}`;
 
-        for (const author of authors) {
-            authorHTML += `<li><a href="#author-${author}">${author}</a></li>`;
+        if (!author) {
+            return '';
         }
 
         return `<div class="post-tags">
-            <p><strong></strong></p>
-            <ul class="list list-horizontal">${authorHTML} </ul>
-          </div>`;
+        <p><strong>Author:</strong></p>
+        <ul class="list list-horizontal"><li><a href="#${authorID}">${author}</a></li></ul>
+      </div>`;
     }
 
     function addClickListenersToAuthorsSection() {
