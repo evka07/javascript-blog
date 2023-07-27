@@ -1,3 +1,34 @@
+
+const optCloudClassCount = 5;
+const optCloudClassPrefix = 'tag-size-'
+function calculateTagsParams(tags) {
+    let min = Infinity;
+    let max = -Infinity;
+
+    for (const tag in tags) {
+        const tagCount = tags[tag];
+        min = Math.min(min, tagCount);
+        max = Math.max(max, tagCount);
+    }
+
+    return {
+        min: min,
+        max: max
+    };
+}
+
+function calculateTagClass(count, params) {
+    const classCount = optCloudClassCount;
+    const classPrefix = optCloudClassPrefix;
+
+    const normalizedCount = count - params.min
+    const normalizedMax = params.max - params.min
+    const percentage = normalizedCount / normalizedMax;
+    const classNumber = Math.floor( percentage * (classCount - 1) + 1 );
+
+    return classPrefix + classNumber
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     function titleClickHandler(event) {
         event.preventDefault();
@@ -64,11 +95,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 tagsCount[tag]++;
             }
         }
+
+        const tagsParams = calculateTagsParams(tagsCount)
+        console.log('tagsParams: ', tagsParams)
         for (const tag in tagsCount) {
-            const tagHTML = `<li><a href="#tag-${tag}">${tag}</a><span>(${tagsCount[tag]})</span></li>`;
+            const tagClass = calculateTagClass(tagsCount[tag], tagsParams);
+            const tagHTML = `<li><a class="${tagClass}" href="#tag-${tag}">${tag}</a><span>(${tagsCount[tag]})</span></li>`;
             tagsList.insertAdjacentHTML('beforeend', tagHTML);
         }
     }
+
 
     function generateTagsSection() {
         const articles = document.querySelectorAll('.post');
@@ -175,19 +211,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // function generateAuthorsHTML(article) {
-    //     const authors = article.getAttribute('data-author').split(' ');
-    //     let authorHTML = '';
-    //
-    //     for (const author of authors) {
-    //         authorHTML += `<li><a href="#tag-${author}">${author}</a></li>`;
-    //     }
-    //
-    //     return `<div class="post-tags">
-    //         <p><strong></strong></p>
-    //         <ul class="list list-horizontal">${authorHTML} </ul>
-    //       </div>`;
-    // }
     function generateAuthorsHTML(article) {
         const authors = article.getAttribute('data-author').split(' ');
         let authorHTML = '';
