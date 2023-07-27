@@ -31,54 +31,54 @@ function calculateTagClass(count, params) {
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    // const articleTemplate = document.getElementById("article-template").innerHTML
-    // const compiledArticleTemplate = Handlebars.compile(articleTemplate)
-    //
-    // const articles = [
-    //     {
-    //         articleId: "article-1",
-    //         title: "Travel",
-    //         author: "by George Tuxedo",
-    //         content: "Tip: Travel can be a diverse topic to talk about. It can mean to travel from one place to-->\n" +
-    //             "                            another using a specific mode of transportation. Or, it can be the kind of travel where you-->\n" +
-    //             "                            visit another city or country. As we said, it is somewhat crucial for asking directions to-->\n" +
-    //             "                            be able to go to your destination, so practice questions like, “How do we get there?” “Where-->\n" +
-    //             "                            is the bus stop?” “Point me to the hospital.” Learning such questions may be handy for-->\n" +
-    //             "                           different types of situations, especially in an emergency",
-    //         tags: ["Travel"]
-    //     },
-    //
-    //     {
-    //         articleId: "article-2",
-    //         title: "Travel",
-    //         author: "by George Tuxedo",
-    //         content: "Tip: Travel can be a diverse topic to talk about. It can mean to travel from one place to-->\n" +
-    //             "                            another using a specific mode of transportation. Or, it can be the kind of travel where you-->\n" +
-    //             "                            visit another city or country. As we said, it is somewhat crucial for asking directions to-->\n" +
-    //             "                            be able to go to your destination, so practice questions like, “How do we get there?” “Where-->\n" +
-    //             "                            is the bus stop?” “Point me to the hospital.” Learning such questions may be handy for-->\n" +
-    //             "                           different types of situations, especially in an emergency",
-    //         tags: ["Travel"]
-    //     },
-    //     {
-    //         articleId: "article-3",
-    //         title: "Travel",
-    //         author: "by George Tuxedo",
-    //         content: "Tip: Travel can be a diverse topic to talk about. It can mean to travel from one place to-->\n" +
-    //             "                            another using a specific mode of transportation. Or, it can be the kind of travel where you-->\n" +
-    //             "                            visit another city or country. As we said, it is somewhat crucial for asking directions to-->\n" +
-    //             "                            be able to go to your destination, so practice questions like, “How do we get there?” “Where-->\n" +
-    //             "                            is the bus stop?” “Point me to the hospital.” Learning such questions may be handy for-->\n" +
-    //             "                           different types of situations, especially in an emergency",
-    //         tags: ["Travel"]
-    //     },
-    //
-    // ]
+    const articleTemplate = document.getElementById("article-template").innerHTML
+    const compiledArticleTemplate = Handlebars.compile(articleTemplate)
 
-    // for (const article of articles) {
-    //     const articleHtml = compiledArticleTemplate(article);
-    //     document.querySelector(".posts").insertAdjacentHTML("beforeend", articleHtml)
-    // }
+    const articles = [
+        {
+            articleId: "article-1",
+            title: "Home",
+            author: "by Marion Berry",
+            content: "Tip: Travel can be a diverse topic to talk about. It can mean to travel from one place to-->\n" +
+                "                            another using a specific mode of transportation. Or, it can be the kind of travel where you-->\n" +
+                "                            visit another city or country. As we said, it is somewhat crucial for asking directions to-->\n" +
+                "                            be able to go to your destination, so practice questions like, “How do we get there?” “Where-->\n" +
+                "                            is the bus stop?” “Point me to the hospital.” Learning such questions may be handy for-->\n" +
+                "                           different types of situations, especially in an emergency",
+            tags: ["Home"]
+        },
+
+        {
+            articleId: "article-2",
+            title: "Travel",
+            author: "by George Tuxedo",
+            content: "Tip: Travel can be a diverse topic to talk about. It can mean to travel from one place to-->\n" +
+                "                            another using a specific mode of transportation. Or, it can be the kind of travel where you-->\n" +
+                "                            visit another city or country. As we said, it is somewhat crucial for asking directions to-->\n" +
+                "                            be able to go to your destination, so practice questions like, “How do we get there?” “Where-->\n" +
+                "                            is the bus stop?” “Point me to the hospital.” Learning such questions may be handy for-->\n" +
+                "                           different types of situations, especially in an emergency",
+            tags: ["Travel"]
+        },
+        {
+            articleId: "article-3",
+            title: "Travel",
+            author: "by George Tuxedo",
+            content: "Tip: Travel can be a diverse topic to talk about. It can mean to travel from one place to-->\n" +
+                "                            another using a specific mode of transportation. Or, it can be the kind of travel where you-->\n" +
+                "                            visit another city or country. As we said, it is somewhat crucial for asking directions to-->\n" +
+                "                            be able to go to your destination, so practice questions like, “How do we get there?” “Where-->\n" +
+                "                            is the bus stop?” “Point me to the hospital.” Learning such questions may be handy for-->\n" +
+                "                           different types of situations, especially in an emergency",
+            tags: ["Travel"]
+        },
+
+    ]
+
+    for (const article of articles) {
+        const articleHtml = compiledArticleTemplate(article);
+        document.querySelector(".posts").insertAdjacentHTML("beforeend", articleHtml)
+    }
 
     function titleClickHandler(event) {
         event.preventDefault();
