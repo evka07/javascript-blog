@@ -37,6 +37,44 @@ document.addEventListener('DOMContentLoaded', function () {
     const articles = [
         {
             articleId: "article-1",
+            title: "Improve Your Language Ability",
+            author: "by Marion Berry",
+            content: "Tip: Travel can be a diverse topic to talk about. It can mean to travel from one place to-->\n" +
+                "                            another using a specific mode of transportation. Or, it can be the kind of travel where you-->\n" +
+                "                            visit another city or country. As we said, it is somewhat crucial for asking directions to-->\n" +
+                "                            be able to go to your destination, so practice questions like, “How do we get there?” “Where-->\n" +
+                "                            is the bus stop?” “Point me to the hospital.” Learning such questions may be handy for-->\n" +
+                "                           different types of situations, especially in an emergency",
+            tags: ["English Ability"]
+        },
+
+        {
+            articleId: "article-2",
+            title: "School or Work",
+            author: "by George Tuxedo",
+            content: "Tip: Travel can be a diverse topic to talk about. It can mean to travel from one place to-->\n" +
+                "                            another using a specific mode of transportation. Or, it can be the kind of travel where you-->\n" +
+                "                            visit another city or country. As we said, it is somewhat crucial for asking directions to-->\n" +
+                "                            be able to go to your destination, so practice questions like, “How do we get there?” “Where-->\n" +
+                "                            is the bus stop?” “Point me to the hospital.” Learning such questions may be handy for-->\n" +
+                "                           different types of situations, especially in an emergency",
+            tags: ["English Ability School Workplace"]
+        },
+        {
+            articleId: "article-3",
+            title: "Grocery Shopping",
+            author: "by George Tuxedo",
+            content: "Tip: Travel can be a diverse topic to talk about. It can mean to travel from one place to-->\n" +
+                "                            another using a specific mode of transportation. Or, it can be the kind of travel where you-->\n" +
+                "                            visit another city or country. As we said, it is somewhat crucial for asking directions to-->\n" +
+                "                            be able to go to your destination, so practice questions like, “How do we get there?” “Where-->\n" +
+                "                            is the bus stop?” “Point me to the hospital.” Learning such questions may be handy for-->\n" +
+                "                           different types of situations, especially in an emergency",
+            tags: ["English Ability Food Dish"]
+        },
+
+        {
+            articleId: "article-4",
             title: "Home",
             author: "by Marion Berry",
             content: "Tip: Travel can be a diverse topic to talk about. It can mean to travel from one place to-->\n" +
@@ -45,23 +83,76 @@ document.addEventListener('DOMContentLoaded', function () {
                 "                            be able to go to your destination, so practice questions like, “How do we get there?” “Where-->\n" +
                 "                            is the bus stop?” “Point me to the hospital.” Learning such questions may be handy for-->\n" +
                 "                           different types of situations, especially in an emergency",
-            tags: ["Home"]
+            tags: ["English Ability Home Opportunities"]
         },
 
         {
-            articleId: "article-2",
-            title: "Travel",
-            author: "by George Tuxedo",
+            articleId: "article-5",
+            title: "Family",
+            author: "by Kitty Toebean",
             content: "Tip: Travel can be a diverse topic to talk about. It can mean to travel from one place to-->\n" +
                 "                            another using a specific mode of transportation. Or, it can be the kind of travel where you-->\n" +
                 "                            visit another city or country. As we said, it is somewhat crucial for asking directions to-->\n" +
                 "                            be able to go to your destination, so practice questions like, “How do we get there?” “Where-->\n" +
                 "                            is the bus stop?” “Point me to the hospital.” Learning such questions may be handy for-->\n" +
                 "                           different types of situations, especially in an emergency",
-            tags: ["Travel"]
+            tags: ["English Ability Family"]
         },
+
         {
-            articleId: "article-3",
+            articleId: "article-6",
+            title: "Pets",
+            author: "by Marion Berry",
+            content: "Tip: Travel can be a diverse topic to talk about. It can mean to travel from one place to-->\n" +
+                "                            another using a specific mode of transportation. Or, it can be the kind of travel where you-->\n" +
+                "                            visit another city or country. As we said, it is somewhat crucial for asking directions to-->\n" +
+                "                            be able to go to your destination, so practice questions like, “How do we get there?” “Where-->\n" +
+                "                            is the bus stop?” “Point me to the hospital.” Learning such questions may be handy for-->\n" +
+                "                           different types of situations, especially in an emergency",
+            tags: ["Pets Home Travel"]
+        },
+
+        {
+            articleId: "article-7",
+            title: "Weather",
+            author: "by Kitty Toebean",
+            content: "Tip: Travel can be a diverse topic to talk about. It can mean to travel from one place to-->\n" +
+                "                            another using a specific mode of transportation. Or, it can be the kind of travel where you-->\n" +
+                "                            visit another city or country. As we said, it is somewhat crucial for asking directions to-->\n" +
+                "                            be able to go to your destination, so practice questions like, “How do we get there?” “Where-->\n" +
+                "                            is the bus stop?” “Point me to the hospital.” Learning such questions may be handy for-->\n" +
+                "                           different types of situations, especially in an emergency",
+            tags: ["Weather Home"]
+        },
+
+        {
+            articleId: "article-8",
+            title: "Clothing",
+            author: "by Theo Tabby",
+            content: "Tip: Travel can be a diverse topic to talk about. It can mean to travel from one place to-->\n" +
+                "                            another using a specific mode of transportation. Or, it can be the kind of travel where you-->\n" +
+                "                            visit another city or country. As we said, it is somewhat crucial for asking directions to-->\n" +
+                "                            be able to go to your destination, so practice questions like, “How do we get there?” “Where-->\n" +
+                "                            is the bus stop?” “Point me to the hospital.” Learning such questions may be handy for-->\n" +
+                "                           different types of situations, especially in an emergency",
+            tags: ["Clothes Weather Home"]
+        },
+
+        {
+            articleId: "article-9",
+            title: "Friends",
+            author: "by Marion Berry",
+            content: "Tip: Travel can be a diverse topic to talk about. It can mean to travel from one place to-->\n" +
+                "                            another using a specific mode of transportation. Or, it can be the kind of travel where you-->\n" +
+                "                            visit another city or country. As we said, it is somewhat crucial for asking directions to-->\n" +
+                "                            be able to go to your destination, so practice questions like, “How do we get there?” “Where-->\n" +
+                "                            is the bus stop?” “Point me to the hospital.” Learning such questions may be handy for-->\n" +
+                "                           different types of situations, especially in an emergency",
+            tags: ["Friends English Weather"]
+        },
+
+        {
+            articleId: "article-10",
             title: "Travel",
             author: "by George Tuxedo",
             content: "Tip: Travel can be a diverse topic to talk about. It can mean to travel from one place to-->\n" +
@@ -293,6 +384,13 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    function displayFirstPost(){
+        const firstPost = document.querySelector('.titles a');
+        if (firstPost) {
+            firstPost.click()
+        }
+    }
+
     generateAuthors()
     addClickListenersToAuthorsSection();
     generateTagsSection();
@@ -301,4 +399,6 @@ document.addEventListener('DOMContentLoaded', function () {
     generateTags();
     addClickListenersToTags();
     addClickListenersToAuthors();
+
+    displayFirstPost()
 });
